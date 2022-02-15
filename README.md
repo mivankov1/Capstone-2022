@@ -1,3 +1,3 @@
 # Capstone
-Initial setup for Capstone depository.
+Initial setup for Capstone repository.
 
