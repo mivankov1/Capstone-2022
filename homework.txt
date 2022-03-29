@@ -1,0 +1,71 @@
+# Task 1.
+You are given a list of numbers. Find maximum difference between any two numbers in the list, with the condition that the smaller number must appear on the right from the greater number (i.e. have greater index in the list)
+Sample input:
+[2,6,3,5,1,7]
+Sample output:
+5
+Explanation: because 6-1=5
+
+
+numlist = [2,6,3,5,1,7]
+size = len(numlist)
+def maxDiff(numlist,numlist_size):
+    max_diff = numlist[1] - numlist[0]
+     
+    for i in range( 0, numlist_size ):
+        for j in range( i+1, numlist_size ):
+            if(numlist[i] - numlist[j] > max_diff):
+                max_diff = numlist[i] - numlist[j]
+     
+    return max_diff
+     
+print ("Maximum difference is", maxDiff(numlist, size))
+
+# Task 2.
+Fred is a very predictable man. For instance, when he uses his laptop, all he does is watch TV shows. He has been keeping logs  how long he charged his laptop for and after that how long was he able to watch the TV. Predict how long will he be able to watch TV, depending on how long he charges the laptop  (regression analysis).
+1.	The first number denotes the amount of time the laptop was charged.
+2.	The second number denotes the amount of time the battery lasted.
+
+
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+import pandas as pd
+  
+
+df = pd.read_csv(r'C:\Users\Marija\Documents\Initial programming assignment\Fred.txt',dtype=float,delimiter=',')
+
+df.head()
+
+X = df[['Ch']]
+y = df[['\tWa']]
+
+model = LinearRegression()
+model
+
+model.fit(X,y)
+
+model.intercept_
+model.coef_
+
+??
+
+# Task 3.
+The money flow index (MFI) is a momentum indicator that measures the inflow and outflow of money into and out of a security over a specific period of time. It is computed as given below, and can assume values between 0 and 100.
+•	Money Flow Index = 100 x Money Ratio ⁄ (1 + Money Ratio)
+•	Money Ratio = Positive Money Flow Sum ⁄ Negative Money Flow Sum
+•	Money Flow = Typical Price × Volume
+•	Typical Price = (High Price + Low Price + Close Price) ⁄ 3 
+The concepts of Positive and Negative Money Flow are defined as follows: on any given day, the Money Flow is denoted positive / negative if the Typical Price is higher / lower than the previous day's typical price. If the Typical Price is unchanged then that day's data are discarded. The Positive Money Flow Sum is the sum of all the Positive Money Flow over a sliding window of n days. The Negative Money Flow Sum is the sum of all the Negative Money Flow over a sliding window of n days.
+Given the stock price data consisting of open, close, volume, low, and high price, calculate the Money Flow Index for each day over a sliding window of n days (n will be given). The first Money Flow Index value is calculated for the (n + 1)th day.
+Function Description Create the moneyFlowIndex function. The function must create a file money_flow_index_[n].csv containing the headers: Day, Open, High, Low, Close, Volume, Typical Price, Positive Money Flow, Negative Money Flow, Positive Money Flow Sum, Negative Money Flow Sum, and Money Flow Index as described in the examples above. The money flow index should be calculated over a sliding window of n days, inclusive of the day for which it is calculated. No return value is expected.
+moneyFlowIndex has two parameters: filename: a string describing the name of the input CSV file containing the headers: Day, Open, High, Low, Close, and Volume n: an integer
+Evaluation The output file must meet the following conditions:
+•	The output CSV file must contain the headers in the given order: Day, Open, High, Low, Close, Volume, Typical Price, Positive Money Flow, Negative Money Flow, Positive Money Flow Sum, Negative Money Flow Sum, and Money Flow Index.
+•	The Day, Open, High, Low, Close, and Volume must exactly match with the values given in the input CSV file.
+•	The computed values of Typical Price, Positive Money Flow, Negative Money Flow, Positive Money Flow Sum, Negative
+•	Money Flow Sum, and Money Flow Index value should not deviate from the correct values by more than 10-6.
+The values of n provided will always be such that it is possible to calculate the money flow index over n days.
+
+
